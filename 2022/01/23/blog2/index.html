@@ -320,25 +320,23 @@
   
 
   
-  <div id="gitment-ctn"></div> 
-
-<!-- 修改css与js文件如下即可-->
-<link rel="stylesheet" href="//billts.site/extra_css/gitment.css">
-<script src="//billts.site/js/gitment.js"></script>
-<!-- end-->
-
+  {% if site.comment_gitment_repo %}
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
 <script>
-var gitment = new Gitment({
-  id: "Sun Jan 23 2022 19:58:56 GMT+0800",
-  owner: 'Jason-le567',
-  repo: 'Jason-le567.github.io',
-  oauth: {
-    client_id: '1a533b92ea39565268dd',
-    client_secret: '810c6b7a292ae5a8d627ce80ec947ff5704eca68',
-  },
-})
-gitment.render('gitment-ctn')
+    var gitment = new Gitment({
+        id: 'Sun Jan 23 2022 19:58:56 GMT+0800',
+        owner: '{{site.github_username}}',
+        repo: '{{site.comment_gitment_repo}}',
+        oauth: {
+            client_id: '{{site.comment_gitment_clientId}}',
+            client_secret: '{{site.comment_gitment_clientSecret}}',
+        },
+    });
+    gitment.render('gitmentContainer')
 </script>
+{% endif %}
   
 
 
