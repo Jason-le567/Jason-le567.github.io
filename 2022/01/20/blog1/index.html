@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20190708/0b41aecbe12b473f934fbd853609244d.jpeg">
 <meta property="article:published_time" content="2022-01-19T16:15:56.000Z">
-<meta property="article:modified_time" content="2022-01-24T15:50:58.454Z">
+<meta property="article:modified_time" content="2022-01-24T16:26:39.549Z">
 <meta property="article:author" content="Jason and YSIOne">
 <meta property="article:tag" content="img">
 <meta name="twitter:card" content="summary">
@@ -329,23 +329,25 @@
   
 
   
-  {% if site.comment_gitment_repo %}
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-<script src="https://billts.site/js/gitment.js"></script>
+  <div id="gitment-ctn"></div> 
+
+<!-- 修改css与js文件如下即可-->
+<link rel="stylesheet" href="//billts.site/extra_css/gitment.css">
+<script src="//billts.site/js/gitment.js"></script>
+<!-- end-->
+
 <script>
-    var gitment = new Gitment({
-        id: 'Thu Jan 20 2022 00:15:56 GMT+0800',
-        owner: '{{site.github_username}}',
-        repo: '{{site.comment_gitment_repo}}',
-        oauth: {
-            client_id: '{{site.comment_gitment_clientId}}',
-            client_secret: '{{site.comment_gitment_clientSecret}}',
-        },
-    });
-    gitment.render('gitmentContainer')
+var gitment = new Gitment({
+  id: "Thu Jan 20 2022 00:15:56 GMT+0800",
+  owner: 'Jason-le567',
+  repo: 'Jason-le567.github.io',
+  oauth: {
+    client_id: '1a533b92ea39565268dd',
+    client_secret: '810c6b7a292ae5a8d627ce80ec947ff5704eca68',
+  },
+})
+gitment.render('gitment-ctn')
 </script>
-{% endif %}
   
 
 
