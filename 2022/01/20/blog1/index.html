@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://jason-le567.github.io/img2/3.jpg">
 <meta property="article:published_time" content="2022-01-19T16:15:56.000Z">
-<meta property="article:modified_time" content="2022-01-26T13:27:21.473Z">
+<meta property="article:modified_time" content="2022-01-26T13:32:44.262Z">
 <meta property="article:author" content="Jason and YSIOne">
 <meta property="article:tag" content="img">
 <meta name="twitter:card" content="summary">
@@ -96,6 +96,41 @@
 		</nav>
 	</header>		
 </div>
+<!--时钟-->
+<br>
+<div style="position:absolute; bottom:120px left:auto; width:100%;height:50%">
+	<script type="text/javascript" src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+  	<div id="clock" style="font-family: 'Share Tech Mono', monospace;color: #ffffff;text-align: center;position: absolute;left: 50%;top: 50%;-webkit-transform: translate(50%, 50%);transform: translate(-50%, -50%);color: #4B8CE1;text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);">
+      		<p style="margin: 0;padding: 0;letter-spacing: 0.1em;font-size: 15px;">{{ date }}</p>
+      		<p style="margin: 0;padding: 0;letter-spacing: 0.01em;font-size: 38px;">{{ time }}</p>
+  	</div>
+	<script>
+		var clock = new Vue({
+			el: '#clock',
+			data: {
+				time: '',
+				date: ''
+			}
+		});
+
+		var week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+		var timerID = setInterval(updateTime, 1000);
+		updateTime();
+		function updateTime() {
+			var cd = new Date();
+			clock.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
+			clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth() + 1, 2) + '-' + zeroPadding(cd.getDate(), 2) + week[cd.getDay()];
+		};
+
+		function zeroPadding(num, digit) {
+			var zero = '';
+			for (var i = 0; i < digit; i++) {
+				zero += '0';
+			}
+			return (zero + num).slice(-digit);
+		}
+	</script>
+</div>
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
@@ -173,6 +208,8 @@
   	<time datetime="2022-01-19T16:15:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-20</time>
 </a>
         
+        
+      
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -180,7 +217,6 @@
         <p>The EPCJ means “Each Program are Cool–Jason”.  EPCJ的意思是：每个程序都很酷——Jason<br>Isn’t it cool?This is the author’s favorite cartoon character–Squirtle.  这张图片难道不酷吗？这是作者最喜欢的动漫人物——杰尼龟</p>
 <span id="more"></span>
 <p><img src="/img2/3.jpg" alt="img"></p>
-<h1 id="使用-pv-记录方式，每访问一次，记录一次"><a href="#使用-pv-记录方式，每访问一次，记录一次" class="headerlink" title="使用 pv 记录方式，每访问一次，记录一次"></a>使用 pv 记录方式，每访问一次，记录一次</h1><p><span id="busuanzi_container_page_pv">  本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span></p>
 
       
 
@@ -370,22 +406,39 @@
         </div>
       </div>
       <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2022 Jason and YSIOne
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-  # PV方式，单个用户连续点击 n 篇，记录 n 次记录值
-<span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-
-# UV方式，单个用户连续点击 n 篇，记录 1 次记录值
-<span id="busuanzi_container_site_uv">  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
-</footer>
+	<div class="outer">
+		<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+		<script>
+			var now = new Date(); 
+			function createtime() { 
+				var grt= new Date("07/03/2019 08:00:00");//此处修改你的建站时间或者网站上线时间 
+				now.setTime(now.getTime()+250); 
+				days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+				hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+				if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+				mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+				seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+				snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+				document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+				document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+			} 
+			setInterval("createtime()",250);
+		</script>
+		
+	  <div id="footer-info">
+		本站访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+		本站访客数<span id="busuanzi_value_site_uv"></span>人&nbsp;
+		本页阅读量<span id="busuanzi_value_page_pv"></span>次&nbsp;
+		<div class="footer-left">
+		  &copy; 2022 Jason and YSIOne
+		</div>
+		<div class="footer-right">
+		  <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	  </div>
+	</div>
+  </footer>
+  
     </div>
     <script>
 	var yiliaConfig = {
