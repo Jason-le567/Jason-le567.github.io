@@ -56,8 +56,6 @@
 		  <h1 class="header-author"><a href="/">Jason and YSOne</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">这是铅笔,这是钢笔,而你是我的Baby。</p>
-		
 
 		<nav class="header-menu">
 			<ul>
@@ -98,40 +96,6 @@
 		</nav>
 	</header>		
 </div>
-<!--时钟-->
-<br>
-<div style="position:absolute; bottom:120px left:auto; width:100%;height:50%">
-	<script type="text/javascript" src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-  	<div id="clock" style="font-family: 'Share Tech Mono', monospace;color: #ffffff;text-align: center;position: absolute;left: 50%;top: 50%;-webkit-transform: translate(50%, 50%);transform: translate(-50%, -50%);color: #4B8CE1;text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);">
-      		<p style="margin: 0;padding: 0;letter-spacing: 0.1em;font-size: 15px;">{{ date }}</p>
-      		<p style="margin: 0;padding: 0;letter-spacing: 0.01em;font-size: 38px;">{{ time }}</p>
-  	</div>
-	<script>
-		var clock = new Vue({
-			el: '#clock',
-			data: {
-				time: '',
-				date: ''
-			}
-		});
-
-		var week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-		var timerID = setInterval(updateTime, 1000);
-		updateTime();
-		function updateTime() {
-			var cd = new Date();
-			clock.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
-			clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth() + 1, 2) + '-' + zeroPadding(cd.getDate(), 2) + week[cd.getDay()];
-		};
-
-		function zeroPadding(num, digit) {
-			var zero = '';
-			for (var i = 0; i < digit; i++) {
-				zero += '0';
-			}
-			return (zero + num).slice(-digit);
-		}
-	</script>
 </div>
 
     </div>
@@ -150,8 +114,6 @@
 			<hgroup>
 			  <h1 class="header-author js-header-author">Jason and YSOne</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>这是铅笔,这是钢笔,而你是我的Baby。<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -402,6 +364,40 @@
       </div>
       <footer id="footer">
 	<div class="outer">
+    <!--时钟-->
+<br>
+<div style="position:absolute; bottom:120px left:auto; width:100%;height:50%">
+	<script type="text/javascript" src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+  	<div id="clock" style="font-family: 'Share Tech Mono', monospace;color: #ffffff;text-align: center;position: absolute;left: 50%;top: 50%;-webkit-transform: translate(50%, 50%);transform: translate(-50%, -50%);color: #4B8CE1;text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);">
+      		<p style="margin: 0;padding: 0;letter-spacing: 0.1em;font-size: 15px;">{{ date }}</p>
+      		<p style="margin: 0;padding: 0;letter-spacing: 0.01em;font-size: 38px;">{{ time }}</p>
+  	</div>
+	<script>
+		var clock = new Vue({
+			el: '#clock',
+			data: {
+				time: '',
+				date: ''
+			}
+		});
+
+		var week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+		var timerID = setInterval(updateTime, 1000);
+		updateTime();
+		function updateTime() {
+			var cd = new Date();
+			clock.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
+			clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth() + 1, 2) + '-' + zeroPadding(cd.getDate(), 2) + week[cd.getDay()];
+		};
+
+		function zeroPadding(num, digit) {
+			var zero = '';
+			for (var i = 0; i < digit; i++) {
+				zero += '0';
+			}
+			return (zero + num).slice(-digit);
+		}
+	</script>
 		<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 <script>
     var now = new Date(); 
@@ -431,6 +427,7 @@
 		  <a href="http://hexo.io/" target="_blank">Hexo</a>
 		</div>
 	  </div>
+    <script src="//code.tidio.co/twm6ztrdbl5vbevdsyfkzhp5ziwtw8g6.js" async></script>
 	</div>
   </footer>
   
@@ -597,7 +594,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">想用最初的心,陪你走最远的路。&lt;br&gt;&lt;br&gt;我们只是小小的码农（且是初中生，有问题请指出）&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">想用最初的心,陪你走最远的路。&lt;br&gt;&lt;br&gt;我们只是小小的码农（且是初中生，有问题请指出）&lt;br&gt;谢谢大家&lt;br&gt;这是铅笔,这是钢笔,而你是我的Baby。&lt;br&gt;</div>
   	  	
     	</section>
     
